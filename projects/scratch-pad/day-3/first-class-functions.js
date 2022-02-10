@@ -14,7 +14,9 @@
 function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
     
-    
+    return function (string){
+        return string > base;
+    }
     
     
     // YOUR CODE ABOVE HERE //
@@ -28,7 +30,9 @@ function createGreaterThanFilter(base) {
 function createLessThanFilter(base) {
     // YOUR CODE BELOW HERE //
     
-    
+    return function (string){
+        return string < base; // gives the value less than the base
+    }
     
     
     // YOUR CODE ABOVE HERE //
@@ -41,10 +45,14 @@ function createLessThanFilter(base) {
  */
 function createStartsWithFilter(startsWith) {
     // YOUR CODE BELOW HERE //
+
+    return function(mystring){
+        console.log(startsWith, mystring, mystring[0] === startsWith)
+        return mystring[0].toLowerCase() === startsWith.toLowerCase();
+
+        };
     
-    
-    
-    
+
     // YOUR CODE ABOVE HERE //
 }
 
@@ -55,8 +63,18 @@ function createStartsWithFilter(startsWith) {
  */
 function createEndsWithFilter(endsWith) {
     // YOUR CODE BELOW HERE //
-    
-    
+
+    return function(mystring){
+        var lowEnd = endsWith.toLowerCase()
+        var lowString = mystring.toLowerCase();
+
+        if (lowEnd === lowString[lowString.length-1]){ //using length-1 to access the last character of mystring
+                return true;
+        }
+        else {
+            return false
+        }
+    }
     
     
     // YOUR CODE ABOVE HERE //
@@ -69,14 +87,22 @@ function createEndsWithFilter(endsWith) {
  * TIP: You need to loop over the Strings, right? We need to pass each String to 
  * the modify Function, but we need to collect the results into some collection.
  */
+
+
 function modifyStrings(strings, modify) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
+    var str = [];
+    for (var i = 0; i < strings.length; i++) { 
+        if ( strings[i] === strings[i].toUpperCase() ) {
+            str.push( modify(strings[i]) );
+        } else if ( strings[i] === strings[i].toLowerCase() ) {
+            str.push( modify(strings[i]) );
+        }
+    }
+    return str;
     // YOUR CODE ABOVE HERE //
 }
+
 
 /** 
  * Given an Array of Strings and a Function designed to test the String in some 
@@ -89,8 +115,16 @@ function modifyStrings(strings, modify) {
  */
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
-    
-    
+    var flag = true;
+    for (var i = 0; i < strings.length; i++){
+        if ( test( strings[i].charAt(0) ) ) {
+            flag == true;
+        } else {
+            return false;
+        }
+    }
+
+    return flag;
     
     
     // YOUR CODE ABOVE HERE //

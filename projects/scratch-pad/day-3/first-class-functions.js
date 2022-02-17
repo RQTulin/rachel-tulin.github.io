@@ -14,8 +14,8 @@
 function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
     
-    return function (string){  
-        return string > base; // return value greater than base
+    return function (base2){  
+        return base2 > base; // return value greater than base
     }
     
     

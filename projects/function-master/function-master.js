@@ -34,8 +34,8 @@ function keysToString(object) {
 
 function valuesToString(object) {
     var str = '';
-    for (var key in object) { 
 
+    for (var key in object) { 
         if ( (typeof object[key]) == "string") {
             if (str == '') {
                 str = object[key];
@@ -94,9 +94,7 @@ function capitalizeAllWords(string) {
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) {
-
-   
-
+  return `Welcome ${capitalizeWord( object["name"] )}!`;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -104,15 +102,37 @@ function welcomeMessage(object) {
 //////////////////////////////////////////////////////////////////////
 
 function profileInfo(object) {
-
+    
+    return `${capitalizeWord( object["name"] )} is a ${capitalizeWord( object['species'] )}`;
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 9 - Maybe Noises /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+/* Should take an object, 
+if this object has a noises array return them 
+as a string separated by a space, 
+if there are no noises return 'there are no noises'" */
 function maybeNoises(object) {
 
+    if (Array.isArray(object['noises'])) { // using Array.isArray to
+        if (object['noises'].length > 0) {
+            var r = "";
+            for(var i=0; i < object['noises'].length; i++) {
+               if (i == 0) {
+                r = object['noises'][i];
+               } else {
+                r += " " + object['noises'][i];
+               }
+            }
+            return r;
+        } else {
+            return "there are no noises";
+        }
+
+    } else {
+        return "there are no noises";
+    }
 }
 
 //////////////////////////////////////////////////////////////////////

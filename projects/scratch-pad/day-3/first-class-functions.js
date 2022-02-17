@@ -14,8 +14,8 @@
 function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
     
-    return function (string){
-        return string > base;
+    return function (string){  
+        return string > base; // return value greater than base
     }
     
     
@@ -31,7 +31,7 @@ function createLessThanFilter(base) {
     // YOUR CODE BELOW HERE //
     
     return function (string){
-        return string < base; // gives the value less than the base
+        return string < base; // return the value less than the base
     }
     
     
@@ -47,7 +47,9 @@ function createStartsWithFilter(startsWith) {
     // YOUR CODE BELOW HERE //
 
     return function(mystring){
+        
         console.log(startsWith, mystring, mystring[0] === startsWith)
+        //return a value with a given string starts with the with the beginning character
         return mystring[0].toLowerCase() === startsWith.toLowerCase();
 
         };
@@ -67,7 +69,7 @@ function createEndsWithFilter(endsWith) {
     return function(mystring){
         var lowEnd = endsWith.toLowerCase()
         var lowString = mystring.toLowerCase();
-
+//return a value with a given string starts with the with the last character
         if (lowEnd === lowString[lowString.length-1]){ //using length-1 to access the last character of mystring
                 return true;
         }

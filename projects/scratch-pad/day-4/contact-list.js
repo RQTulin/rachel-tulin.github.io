@@ -34,31 +34,76 @@
  */
 
 // YOUR CODE GOES BELOW HERE //
-function makeContact(id, nameFirst, nameLast) {
 
+function makeContact(id, nameFirst, nameLast) { // factory function
+
+    var output = {};
+    output.id = id;
+    output.nameFirst = nameFirst;
+    output.nameLast = nameLast;
+    
+    return output;
 } 
-
 
 function makeContactList() {
     /*
      * You need something here to hold contacts. See length api for a hint:
      */
-    var contacts;
-    
+    var contacts = [];
+     
+
     return {
         // we implemented the length api for you //
         length: function() {
             return contacts.length;
+        },
+        addContact: function(contact){
+            contacts.push(contact);
+        },
+        findContact: function(fullName){
+            var data = {};
+            for (var i=0; i < contacts.length; i++) {	
+                var completename = contacts[i]['nameFirst'] + ' ' + contacts[i]['nameLast'];
+                //console.log("Search fullName: ", fullName); 
+                if ( completename === fullName ) {
+                    data = contacts[i];
+                    return data;
+                } else {
+                    data = undefined;
+                }
+                
+            }
+            return data;
+        },
+        removeContact: function(contact) {
+            for (var i=0;i < contacts.length;i++) { 
+                if (contacts[i].nameFirst == contact.nameFirst && contacts[i].nameLast == contact.nameLast) {
+                    contacts.splice(i, 1);
+                    //delete contacts[i];
+                } else {
+                    console.log( 'Unable to remove contact. Contact not found.' );
+                }
+            }
+        },
+        printAllContactNames: function() {
+            var output = '';
+            for (var i=0;i < contacts.length ;i++) {
+                if (i == 0)  {
+                    output = contacts[i].nameFirst + ' ' + contacts[i].nameLast;
+                } else {
+                    output += '\n' + contacts[i].nameFirst + ' ' + contacts[i].nameLast;
+                }
+            }
+            return output;
         }
     }
-}
-
+            
 
 
 
 // YOUR CODE GOES ABOVE HERE //
 
-
+}
 
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////

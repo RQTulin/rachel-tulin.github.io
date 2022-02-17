@@ -182,23 +182,11 @@ else {
 function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
    
-
-if (stringOne > stringTwo){
-        return -1;
-}
-
- else if (stringOne < stringTwo) {
-     return 1;
- }
-else {
-    return 0;
-}
- 
+    return stringTwo.localeCompare(stringOne);
     // YOUR CODE ABOVE HERE //
-  
+
 }
-
-
+//console.log(sortAscending("abc", "acb"));
 /**
  * Given two Strings, return 1 if the first is lower in alphabetical order than
  * the second, return -1 if the second is lower in alphabetical order than the
@@ -209,18 +197,8 @@ else {
 function sortDescending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
     
-
-    if (stringOne < stringTwo){
-        return -1;
-}
-
- else if (stringOne > stringTwo) {
-     return 1;
- }
-else {
-    return 0;
-}
-
+return stringOne.localeCompare(stringTwo);
+    
     // YOUR CODE ABOVE HERE //
 }
 

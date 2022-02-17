@@ -30,15 +30,16 @@ return Array.isArray(value);
 function isObject(value) {
     // YOUR CODE BELOW HERE //
 console.log("value: " , value)
-if (typeof value === 'object' && !Array.isArray(value) && value !== null && !(value instanceof Date)){
-    console.log(true)
-    return true;
+//determine that values will retrurn to an object, not an array, not null, and not date
 
-}
+if (typeof value === 'object' && !Array.isArray(value) && value !== null && !(value instanceof Date)){
+    //console.log(true)
+    return true;
+    }
   else {
-      console.log(false)
+      //console.log(false)
       return false;
-  }
+    }
     // YOUR CODE ABOVE HERE //
 }
 
@@ -51,12 +52,13 @@ if (typeof value === 'object' && !Array.isArray(value) && value !== null && !(va
 function isCollection(value) {
     // YOUR CODE BELOW HERE //
 
-    console.log("value: " , value)
-    if (typeof value === 'object' && value !== null && !(value instanceof Date)){
+    //console.log("value: " , value)
+
+    if (!Array.isArray(value) === false || typeof value === 'object' && value !== null && !(value instanceof Date)){
         return true; //return true if value is either an array or an object
     }
-    else if (!Array.isArray(value)) { 
-        console.log(false)
+    else { 
+       // console.log(false)
         return false; // false is the value is not an array or an object
     }
     
@@ -85,11 +87,29 @@ function isCollection(value) {
  */ 
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
+    console.log(value);
+
+
+        if (Array.isArray(value)){ // determine if value is an array, return "array"
+          return "array";
+        }
+        else if(value === null){ // determine if value is null, return "null"
+          return "null"
+        } 
+        else if (value instanceof Date){// determine if value is instance of, return "date"
+          return "date";
+        }
+        else {
+          return typeof value; // else it must be an object
+        }
+         
+        
+        
     
-    return (new String(typeof value)).valueOf();
-    
+    //console.log('TYPEOF: ', typeof value);
     // YOUR CODE ABOVE HERE //
-}
+
+    }
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 if((typeof process !== 'undefined') &&

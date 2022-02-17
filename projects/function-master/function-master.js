@@ -115,14 +115,14 @@ as a string separated by a space,
 if there are no noises return 'there are no noises'" */
 function maybeNoises(object) {
 
-    if (Array.isArray(object['noises'])) { // using Array.isArray to
+    if (Array.isArray(object['noises'])) { // using Array.isArray to check if object is array
         if (object['noises'].length > 0) {
             var r = "";
             for(var i=0; i < object['noises'].length; i++) {
-               if (i == 0) {
-                r = object['noises'][i];
+               if (i == 0) {  
+                r = object['noises'][i]; // returning the object array to string
                } else {
-                r += " " + object['noises'][i];
+                r += " " + object['noises'][i];// returning the the object with spaces
                }
             }
             return r;
@@ -138,9 +138,14 @@ function maybeNoises(object) {
 //////////////////////////////////////////////////////////////////////
 // Function 10 - Has Words ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+// Should take a string of words and a word and return true if <word> is in <string of words>, otherwise return false.", function(assert){
+    
 function hasWord(string, word) {
+ 
+    var word = string.includes(word);
 
+    return word;
+       
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -148,15 +153,22 @@ function hasWord(string, word) {
 //////////////////////////////////////////////////////////////////////
 
 function addFriend (name, object) {
+//Should take a name and an object and add the name to the object's friends array then return the object"
+
+object["friends"].push(name);
+return object;
 
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 12 - Is Friend ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+//Should take a name and an object and return true if <name> is a friend of <object> and false otherwise",
+//assert.equal(isFriend("jimmy",{friends:["bobby", "ralf"]}), false);
+//assert.equal(isFriend("ralf",{friends:["bobby", "ralf"]}), true);
 function isFriend(name, object) {
-
+    
+    return object["friends"].includes(name);
 }
 
 //////////////////////////////////////////////////////////////////////

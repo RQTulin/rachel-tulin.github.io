@@ -183,6 +183,7 @@ function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
    
     return stringTwo.localeCompare(stringOne);
+    
     // YOUR CODE ABOVE HERE //
 
 }

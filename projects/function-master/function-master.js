@@ -26,6 +26,8 @@ function keysToString(object) {
         }
     }
     return str;
+   
+    //return Object.keys(object).map(key => key).join(" ");
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -166,17 +168,31 @@ return object;
 //Should take a name and an object and return true if <name> is a friend of <object> and false otherwise",
 //assert.equal(isFriend("jimmy",{friends:["bobby", "ralf"]}), false);
 //assert.equal(isFriend("ralf",{friends:["bobby", "ralf"]}), true);
+
 function isFriend(name, object) {
+    if (object["friends"] != undefined){
+        return object["friends"].includes(name);
+    } else {
+        return false;
+    }
     
-    return object["friends"].includes(name);
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 13 - Non-Friends /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+//Should take a name and a list of people, and return a list of all the names that <name> is not friends with"
 
 function nonFriends(name, array) {
-
+    var r = [];
+    for(var i=0; i < array.length; i++) {
+        if ( !array[i].friends.includes(name) ) {
+            if (array[i].name != name) {
+                r.push(array[i].name);
+            }
+        }
+    }
+    return r;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -184,6 +200,18 @@ function nonFriends(name, array) {
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
+        
+    if(!object.hasOwnProperty(key)){ //using hasOwnProperty to find if key exist on the object (if key does not exist) 
+        object[key] = value; // object will be added a new key and value
+    } else {
+        for (var i = 0; i < Object.keys(object).length; i++) {
+            if (Object.keys(object)[i] == key) { // if keys exists on the object
+                  object[key] = value; // it will replace the key value
+            }
+        }
+    }
+  return object;
+
 
 }
 
@@ -193,6 +221,12 @@ function updateObject(object, key, value) {
 
 function removeProperties(object, array) {
 
+    for(var i=0; i < array.length; i++) {
+        if (object.hasOwnProperty(array[i])) {
+            delete object[array[i]]; 
+        }
+    }
+
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -201,6 +235,13 @@ function removeProperties(object, array) {
 
 function dedup(array) {
 
+    var uniqueArray = [];
+    for (var i=0; i < array.length; i++) {
+       if (uniqueArray.indexOf(array[i]) === -1) {
+           uniqueArray.push(array[i]);
+       }
+    }
+    return uniqueArray;
 }
 
 //////////////////////////////////////////////////////////////////////

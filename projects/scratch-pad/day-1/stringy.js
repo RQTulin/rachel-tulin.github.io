@@ -182,7 +182,14 @@ else {
 function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
    
-    return stringTwo.localeCompare(stringOne);
+    //return stringTwo.localeCompare(stringOne);
+    if (stringOne > stringTwo) {
+        return 1;
+    } else if (stringTwo > stringOne) {
+        return -1;
+    } else {
+        return 0;
+    };
     
     // YOUR CODE ABOVE HERE //
 
@@ -198,7 +205,14 @@ function sortAscending(stringOne, stringTwo) {
 function sortDescending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
     
-return stringOne.localeCompare(stringTwo);
+//return stringOne.localeCompare(stringTwo);
+if (stringOne > stringTwo) {
+    return -1;
+} else if (stringTwo > stringOne) {
+    return 1;
+} else {
+    return 0;
+};
     
     // YOUR CODE ABOVE HERE //
 }

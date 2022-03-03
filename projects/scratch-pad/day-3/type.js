@@ -87,7 +87,8 @@ function isCollection(value) {
  */ 
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
-    console.log(value);
+
+    //console.log(value);
 
 
         if (Array.isArray(value)){ // determine if value is an array, return "array"

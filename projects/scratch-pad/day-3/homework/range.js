@@ -36,7 +36,7 @@ function range(start, end) {
     } else {
         for(var i = start; i <= end; i++){
           array.push(i);
-          start += 1;
+          //start += 1;
         }
     }
    

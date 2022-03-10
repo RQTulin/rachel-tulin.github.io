@@ -18,7 +18,7 @@
 // called myName. When you console log it, it will print undefined because it currently
 // has no value.  
 var myName;
-console.log(myName);// prints => undefined
+console.log(myName); //prints => undefined
 
 // 2. Initialization //
 // Once we declared our variable, you can initialize it by assigning it to a value. You can
@@ -27,9 +27,83 @@ console.log(myName);// prints => undefined
 myName = 'Mary';
 console.log(myName); // prints => Mary
 
-// 3. Re-assignment
+// 3. Re-assignment //
 // After a variable has been initialized with a value, you can update a value by giving it a 
 // different value.
+
 myName = 'Maddy';
 console.log(myName); // prints => Maddy
 
+/** 
+* 3. var, let, and const 
+* 0. The var declerations are globally scoped or function/locally scoped. When a var variable is declared 
+* outside the function, the scope is global. This means that variable that is declared with var 
+* outside a function is available for use. var is function scoped when it is declared within the function.
+* It is available and can be accessed within that function. var variables can be re-declared and updated as well.
+*
+* 1. The variable let is preferred for decleration. let is block scoped, and it is only available for us
+* within that block. A block is a chunck of code bounded by {}, it lives in curly braces. Just like var variable
+* let can be updated within its scope, but not re-declared.
+*
+* 2. The variable const is just like let variable, it can only be accessed within the block they were declared.
+* cons cannot be updated or re-declared. The value of variable declared with const remains the same within its
+* scope.
+*
+* 4. Hoisting
+* 0. Hoisting allows you to use functions and variables before they are declared. In  JavaScript interpreter splits
+* the declaration and assignment of functions and variables: it "hoists" your declarations to the top of their 
+* containing scope before execution. 
+*
+* 1. Variable hoisting 
+* Variable hoisting acts differently depending on how the variable is declared. Variable hoisting with var initializes
+* its value to undefined. Variable hoisting with let and const are hoisted but not initialized with a default value.
+* Accessing a let or const variable before it's declared will result in a 'ReferenceError:'.
+* See examples below for var, let, const, and hoisting.
+*/
+
+//var example //
+var city  = 'new orleans'; // city is globally scoped because it exists outside a function
+
+function functionName() {
+
+    var atlanta = 'atlanta';// atlanta is function scoped
+}
+console.log(atlanta); // => hello is not defined because of not being available outside the function
+
+// let example //
+let city = "new orleans";
+let tourists = 10;
+
+if (tourists > 9) {
+    let atlanta = "atlanta georgia";
+    console.log(atlanta); // "atlanta"
+}
+console.log(atlanta); // atlanta is not defined
+//using atlanta outside its block returns an error, because let variables are block scoped
+
+// const example //
+const city = {
+    parish: "Jefferson",
+    tourists: 10
+}
+city = {
+    state: "Louisiana",
+    tourists: "ten"
+} // error:  assignment to constant variable
+
+// hoisting 
+console.log(hello);
+var hello = 'hello'; // => undefined
+// this process called hoisting, it allows us to use hello before its declaration
+
+// variable hoisting with var 
+console.log(hello); // => undefined
+
+var hello = 'hi';
+
+console.log(hello); // => "hi"
+
+// variable hoisting with let and const
+console.log(hello); // => Uncaught ReferenceError: cannot access 'foo' before initialization
+
+let hello = 'hi';  // => same result for variables declared with const

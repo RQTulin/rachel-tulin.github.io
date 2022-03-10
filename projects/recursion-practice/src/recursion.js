@@ -87,14 +87,12 @@ var exponent = function(base, exp) {
 
   if (exp < 0) {
     return base / exponent(base, -exp + 1);
-  }
-  if (exp === 0) {
-    return 1;
-  }
-  if (exp === 1) {
+    }if (exp === 0) {
+      return 1;
+      } if (exp === 1) {
     return base;
-  } else
-  return base * exponent(base, exp - 1);
+      } else
+         return base * exponent(base, exp - 1);
 
 };
 
@@ -146,14 +144,16 @@ var modulo = function(x, y) {
 // 12. Write a function that multiplies two numbers without using the * operator  or
 // JavaScript's Math object.
 // ATTENTION DO NOT LEAVE COMMENTS IN THIS FUNCTION. The test is looking for any ('/').
+
 var multiply = function(x, y) {
-  if(x === 0 || y === 0){
+
+    if(x === 0 || y === 0){
     return 0;
-  }else if(y < 0){
+   }else if(y < 0){
     return -x + multiply(x, y + 1);
   } else {
     return x + multiply(x, y - 1);
-  }
+ }
 };
 
 // 13. Write a function that divides two numbers without using the / operator  or
@@ -338,14 +338,13 @@ var flatten = function(arrays) {
 var letterTally = function(str, obj = {}) {
 if(str.length === 0)
     return obj;
-  letterTally(str.substring(1), obj);
 
- if (obj[str[0]] === undefined) {
+ if (!obj[str[0]]) {
     obj[str[0]] = 1;
   } else {
     obj[str[0]] += 1;
   }
-  return obj;
+  return letterTally(str.slice(1), obj);
   
 };
 
@@ -359,12 +358,12 @@ var compress = function(list, output =[]) {
    if(list.length === 0){
     return output;
 }
-if (!output.includes(list[0])){
-    output.push(list[0])
+//if(!output.includes(list[0])){
+  if(list[0] !== list[1] && list[0] !== output[0]){
+  output.push(list[0])
   
   }
   return compress(list.slice(1), output);
-
 };
 
 // 32. Augment every element in a list with a new value where each element is an array
@@ -377,7 +376,18 @@ var augmentElements = function(array, aug) {
 // 33. Reduce a series of zeroes to a single 0.
 // minimizeZeroes([2,0,0,0,1,4]) // [2,0,1,4]
 // minimizeZeroes([2,0,0,0,1,0,0,4]) // [2,0,1,0,4]
-var minimizeZeroes = function(array) {
+var minimizeZeroes = function(array, output =[]) {
+
+ if(array.length === 0){
+    return output;
+}
+//if(!output.includes(list[0])){
+  if(array[0] !== array[1] && array[0] !== output[0]){
+  output.push(array[0])
+  
+  }
+  return minimizeZeroes(array.slice(1), output);
+
 };
 
 // 34. Alternate the numbers in an array between positive and negative regardless of
@@ -390,8 +400,18 @@ var alternateSign = function(array) {
 // 35. Given a string, return a string with digits converted to their word equivalent.
 // Assume all numbers are single digits (less than 10).
 // numToText("I have 5 dogs and 6 ponies"); // "I have five dogs and six ponies"
-var numToText = function(str) {
+
+var numToText = function(str, value = '') {
+  var words = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+  if (str.length === 0) {
+    return value;
+  }
+  if (Number(str[0]) && str[0] !== ' ') {
+    return numToText(str.slice(1), value + words[Number(str[0])]);
+  }
+  return numToText(str.slice(1), value + str[0]);
 };
+
 
 // *** EXTRA CREDIT ***
 

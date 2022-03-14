@@ -76,6 +76,13 @@ var range = function(x, y, arr = []) {
       return arr;
       return arr.concat(x + step, range(x + step, y));
 };
+//recursion
+// if(x < y) {
+
+//}else{
+ // arr.push(x=1)
+ //range(x + 1, y, output);
+//}
 
 
 // 7. Compute the exponent of a number.
@@ -123,13 +130,15 @@ var palindrome = function(string) {
 
   if (string.length === 0) {
     return true;
-  } if (string.length === 1) {
-      return true;
- } if (string.charAt(0).toLowerCase() !== string.charAt(string.length-1).toLowerCase()) {
-    return false;
-  }
-  var str = string.substring(1, string.length-1);
-  return palindrome(str);
+ } 
+  if (string[0].toLowerCase() === string[string.length - 1].toLowerCase()) {
+    return palindrome(string.slice(1).slice(0, -1));
+  } else if (string[0] === ' ') {
+    return palindrome(string.slice(1));
+  } else if (string[string.length - 1] === ' ') {
+    return palindrome(string.slice(1));
+  } else 
+  return false;
   
 };
 
@@ -394,7 +403,23 @@ var minimizeZeroes = function(array, output =[]) {
 // their original sign.  The first number in the index always needs to be positive.
 // alternateSign([2,7,8,3,1,4]) // [2,-7,8,-3,1,-4]
 // alternateSign([-2,-7,8,3,-1,4]) // [2,-7,8,-3,1,-4]
-var alternateSign = function(array) {
+
+var alternateSign = function(array, output = []) {
+  if(array.length === 0){
+    return output;
+  } 
+  if(array[0] < 0){
+    output.push(array[0] * -1)
+  } else{
+    output.push(array[0])
+  }
+  if(array[1] > 0){
+    output.push(array[1] * -1)
+  } else{
+    output.push(array[1])
+  }
+  return alternateSign(array.slice(2), output);
+
 };
 
 // 35. Given a string, return a string with digits converted to their word equivalent.

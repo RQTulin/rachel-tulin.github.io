@@ -109,33 +109,31 @@ function nth(list, number) {
 // deepEqual ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function deepEqual(obj1, obj2) {
-  if (obj1 === obj2) { // if items are the same
-    return true;
-  } else if (typeof obj1 === 'object' && obj1 !== null && typeof obj2 === 'object' && obj2 !== null) {
+
+function deepEqual(x, y){
+
+  if(typeof x !== 'object' && typeof y !== 'object'){
+    return x === y;
+  }
+  if (typeof x !== 'object' || typeof y !== 'object'){
+    return false;
+  }
   
-    // join keys from both objects together in one array
-    let keys = Object.keys(obj1).concat(Object.keys(obj2));
-    // filter out duplicate keys
-    keys = keys.filter(
-      function (value, index, self) { 
-        return self.indexOf(value) === index;
-	  }
-    );
-    for (obj of keys) {
-      if (typeof obj1[obj] === 'object' && typeof obj2[obj] === 'object') {
-        if (deepEqual(obj1[obj], obj2[obj]) === false) {
-          return false;
-        }
-      } else if (obj1[obj] !== obj2[obj]) {
-        return false;
-      }
-    }
-    return true;
-  } else {
-   return false; 
+let xKeys = Object.keys(x);
+let yKeys = Object.keys(y);
+
+  if(xKeys.length !== yKeys.length){
+    return false;
+  }
+  for (let i = 0; i < xKeys.length; i++){
+    if(!yKeys.includes(xKeys[i]) || !deepEqual(x[xKeys[i]], y[xKeys[i]])){
+      return false;
+    
   }
 }
+return true;
+}
+ 
 
 ////////////////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////

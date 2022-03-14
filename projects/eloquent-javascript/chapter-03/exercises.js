@@ -29,7 +29,7 @@ function isEven(number) {
 
 function countChars(str, c) {
   var cnt = 0;
-  for(var i=0;i<str.length;i++) {
+  for(var i = 0; i < str.length; i++) {
       if (str.charAt(i) === c) { 
           cnt++;
       }
@@ -43,7 +43,7 @@ function countChars(str, c) {
 
 function countBs(str) {
   var cnt = 0;
-  for(var i=0;i<str.length;i++) {
+  for(var i = 0; i < str.length; i++) {
       if (str.charAt(i) === "B") { 
           cnt++;
       }

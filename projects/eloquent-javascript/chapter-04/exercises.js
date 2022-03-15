@@ -2,7 +2,7 @@
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function range(start, end, step=1) { 
+function range(start, end, step = 1) { 
   let array = [];
     if(start === end){
       return array;
@@ -16,6 +16,18 @@ function range(start, end, step=1) {
     }
     return array;
   }
+  /**
+  function range(x, y, z){
+    let output = [];
+  if (z === undefined){
+
+  }else{
+
+  }
+
+
+  }
+   */
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -75,14 +87,28 @@ function arrayToList(array) {
 
 function listToArray(inputList) {
  
-    currentArray = [inputList.value];
+  currentArray = [inputList.value];
   if (inputList.rest) {
     currentArray = currentArray.concat(listToArray(inputList.rest));
   }
   return currentArray;
 
-
 }
+/**
+function listToArray(obj, output= []){
+//base
+if(obj.rest === null){
+  output.push(obj.value);
+  return output;
+}
+
+// recursion
+output.push(obj.value);
+return listToArray(obj.rest, output);
+}
+
+ */
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // prepend /////////////////////////////////////////////////////////////////////

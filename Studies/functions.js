@@ -12,19 +12,32 @@
  * 2. The second phase is we have to invoke our function by creating ang "function call". The function call/invocation
  * consist of two parts; the name of the function you would like to invoke, and "arguments" - the actual values you'd 
  * like to invoke the function on, enclosed in parenthesis (). 
- *
- * 3. What’s the syntax for a NAMED function?
- * 
- * 
- * 
- * 4. How do we assign a function to a variable?
- * 
- * 
- * 
- * 5. Functions can OPTIONALLY take inputs, and OPTIONALLY return a single value. How do we specify
- *  inputs, and how do we specify outputs?
- * 
- * 
+ */
+
+/*
+ * 3. Function can be named, or assigned to variables or constant, or anonymous. Lets look at below how a named function
+ * looks like. 
+ */
+ function multiply(x, y){ // the name of the function is 'multiply'
+     return x * y;
+ }
+const multi = multiply(2,2); // 
+console.log(multi); // prints 4
+
+/* 
+ * 4. The way we assign function to a variable is the same way we assign to any variable. In function, the
+ * Function expression is formed when an anonymous Function is assigned to a variable or constant.
+ */
+const add = function(a, b){
+    return a + b;
+}
+const sum = add(1, 2); // => prints 3
+console.log(sum); 
+
+
+/*
+ * 5. We specify inputs by what we put inside the function parenthesis, and outputs are specificied by return
+ * statement or console logging. 
  * 
  * 6. Scope: Functions can see and modify variables in parent or global scopes. The inverse is NOT true.
  * 

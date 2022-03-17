@@ -34,16 +34,56 @@ const add = function(a, b){
 const sum = add(1, 2); // => prints 3
 console.log(sum); 
 
-
 /*
  * 5. We specify inputs by what we put inside the function parenthesis, and outputs are specificied by return
  * statement or console logging. 
  * 
- * 6. Scope: Functions can see and modify variables in parent or global scopes. The inverse is NOT true.
- * 
- * 
+/* 6. To apply this function, based on the function we created below, the parent scope is the parentFunction.
+ * The variable "y" cannot be accessed outside the parent function because it's been declared inside the nested 
+ * function childFunction1.
+ * The variable "z" is being used inside the scope of function childFunction2, trying to manipulate the data
+ * by passing the value of 10. However, it will still fail to modify the initial value of z because it's a constant 
+ * variable. 
+ */
+// global scopes
+
+var x = 0; // global variable
+
+function parentFunction() { // main function
+    const z = 90; 
+    
+    function childFunction1() {  // child function
+      var y = 100;
+      return x + 100 * y;
+    }
+
+    function childFunction2() {  
+        z = 10; // => prints assignment to constant variable error
+        return x + 30 + z + y; // => adding y variable throws undefined error
+    }
+   
+    return childFunction1() + childFunction2();
+}
+
+/* 
  * 
  * 7. Closures: Functions form closures around the data they house. If an object returned from the Function
- *  and is held in memory somewhere (referenced), that closure stays ALIVE, and data can continue to exist in these closures! (See: our meeting-room app for an example!) (ALSO, see: Understanding JavaScript Closures with Ease)
+ *  and is held in memory somewhere (referenced), that closure stays ALIVE, and data can continue to exist in these closures! 
  * 
+ * From what I'm understanding, closures is that the inner function still has access to the outer function’s variables even after
+ * the outer function has returned. Let's take a look at one of the basic example given below.
  */
+ // this inner function has access to the outer function's variables, including the parameters
+
+function myName(firstName, lastName) {
+var nameIntro = "Your name is ";
+    
+function fullName () {        
+return nameIntro + firstName + " " + lastName;    
+}
+
+return fullName ();
+}
+
+myName("Rachel", "Tulin"); // Your name is Rachel Tulin
+

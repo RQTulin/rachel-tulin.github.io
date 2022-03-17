@@ -1,3 +1,6 @@
+
+
+
 // /////////////////////////////////////////////////////////////////////////////
 // flatten /////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
@@ -39,8 +42,27 @@ function every(array, test) {
 // dominantDirection ///////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function dominantDirection(text) {
-  
+function dominantDirection(str) {
+let newStr = str;
+
+
+// create arrays for each direction
+ let ltr = [];
+ let rtl = [];
+//iterate through input str
+for (var i = 0; i < str.length; i++){
+  let scriptName = characterScript(newStr.charCodeAt(i));
+  console.log(scriptName);
+  // check if the scriptName result is not equal to Null
+  if (scriptName !== null){
+    scriptName.direction === 'ltr' ? ltr.push(scriptName.name) : rtl.push(scriptName.name);
+  }
+}
+if (ltr.length > rtl.length) {
+  return 'ltr';
+}else{
+  return 'rtl';
+}
 }
 
 // /////////////////////////////////////////////////////////////////////////////

@@ -48,6 +48,8 @@ const hello = "Hello World";
 const helloWorldSplit = hello.split(' ');
 console.log(helloWorldSplit); //  ["Hello", "World"];
 
+//slice - 
+
 // substring(index, index) - this function, you pass in the index of the element you want to start at, as well 
 // as the index in the string you want the substring to end at. 
 const greetings = 'Hello World';
@@ -59,4 +61,5 @@ const firstName = "Rachel";
 console.log(firstName.toUpperCase()); // RACHEL
 console.log(firstname.toLowerCase()); // rachel
 
-//
+
+

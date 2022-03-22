@@ -14,35 +14,52 @@
  /=	Divide left operand value by right operand value and assign the result to the left operand.
  %=	Get the modulus of left operand divide by right operand and assign resulted modulus to the left operand.
  */
+// = 
  var x = 5, y = 10;
 
 x = y; //x => 10
 
-x += 1; //x => 6
+// =+
 
-x -= 1; //x => 4
+var add = 5;
+num1 += 1; //num1 => 6
 
-x *= 5; //x => 25
+// -=
+ var nums = 5;
+nums -= 1; //nums => 4
 
-x /= 5; //x => 1
+// *=
+var a = 5;
+a *= 5; //a => 25
 
-x %= 2; //x => 1
+// /=
+var divide = 5;
+divide /= 5; //divide => 1
+
+// %=
+var mod = 5;
+mod %= 2; //mod => 1
 
 
 /* 2. Arithmetic Operators - Arithmetic operators are used to perform mathematical operations between numeric operands.
  * Arithmetic operators are symbols like plus (+), minus (-), multiply (*),  divide (/), and modulus operator(%).
  */
+// + plus
 var a = 5, b = 10;
 
-var c = a + b; // => prints 15
+var c = a + b; // => resolves to 15
 
-c = b - a; // => prints 5
+// - minus
+5 + 5; // => resolves to 5
 
-c = a * b; //=> prints 50
+// * multiply
+2 * 2;  //=> resolves to 4
 
-c = b / a; // => prints 2
+// / divide
+4 / 2; // => resolves to 2
 
-c = a % 2; // => prints remainder 1
+// % modulus 
+5 % 2; // => resolves to remainder 1
 
 /* 3. Comparison Operators - compare two operands and return a boolean value true or false.
  // example of comparison operators symbols are :

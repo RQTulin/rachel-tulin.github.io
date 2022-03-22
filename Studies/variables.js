@@ -7,10 +7,17 @@
 * numbers, anything can vary. In Javascript, a variable stores a data value that
 * can be changed later on.
 *
-* 1. To create or declare a variable, we use the var keyword, and followed by the
+* 1. To create or declare a variable, we use the var, const or let keyword, and followed by the
 * name of the variable that we chose. 
 *
-* 2. There are two phases of using variables: declaration and initialization. 
+* 2. There are two other ways to declare a variable, by using constant and let.
+*
+* 3. Constants - are values can never change; they are block scoped, and not hoisted 
+* to the top of their block scope.
+*
+* 4. Lets - containers for reassignable values; they are NOT hoisted to their code block.
+* 
+* 5. There are two phases of using variables: declaration and initialization. 
 */
 
 // 1. Decleration //

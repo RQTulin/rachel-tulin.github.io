@@ -26,6 +26,10 @@
  var isName = true;
  console.log(isName); // => prints true
 
+// another example
+ var  i = 1 > 5;
+console.log(i) // prints flase
+
 /* 4. Array -  An array is a zero - indexed list. A collection that allows us to store a list of values in any data
  * type, and store them as one variable. The array index starts from 0, so that the first array element is arr[0] 
  * not arr[1].

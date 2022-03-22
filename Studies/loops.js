@@ -11,6 +11,10 @@
  * need to repeat in action but not for a definite number of times each times. While loops starts by evaluating
  * condition. If condition evaluates to true, the code in the code block gets executed. If condition is false, 
  * the code in the code block is not executed and the loop ends.
+ * 
+ * 1.1 Increment and Decrement - At the beginning of the loop, while loop checks the condition, if the condition is
+ * true, it will execute the statement inside the loop. You have to use the increment (++) and decrement(--) operator
+ * inside the while lopp (i++ or +--) to increment or decrement the value. 
  */
 let i = 1;
 while (i < 10) {

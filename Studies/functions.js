@@ -18,52 +18,58 @@
  * 3. Function can be named, or assigned to variables or constant, or anonymous. Lets look at below how a named function
  * looks like. 
  */
- function multiply(x, y){ // the name of the function is 'multiply'
+ function multiply(x, y){ // function decleration, function name 'multiply'
      return x * y;
  }
-const multi = multiply(2,2); // 
+const multi = multiply(2,2); //  multiply x and y (2 * 2) is a function call
 console.log(multi); // prints 4
 
 /* 
  * 4. The way we assign function to a variable is the same way we assign to any variable. In function, the
  * Function expression is formed when an anonymous Function is assigned to a variable or constant.
  */
-const add = function(a, b){
+const add = function(a, b){ 
     return a + b;
 }
-const sum = add(1, 2); // => prints 3
+const sum = add(1, 2); 
 console.log(sum); 
 
 /*
  * 5. We specify inputs by what we put inside the function parenthesis, and outputs are specificied by return
  * statement or console logging. 
- * 
-/* 6. To apply this function, based on the function we created below, the parent scope is the parentFunction.
- * The variable "y" cannot be accessed outside the parent function because it's been declared inside the nested 
- * function childFunction1.
- * The variable "z" is being used inside the scope of function childFunction2, trying to manipulate the data
- * by passing the value of 10. However, it will still fail to modify the initial value of z because it's a constant 
- * variable. 
  */
-// global scopes
+ const plus = function (num1, num2){ // num1 and num2 are the inputs
+     return num1 + num2; 
+ }
+ const add1 = plus(2, 3); // this is the argument inputs (2 + 3)
+ console.log(add1); // => prints 5
 
-var x = 0; // global variable
 
-function parentFunction() { // main function
-    const z = 90; 
-    
-    function childFunction1() {  // child function
-      var y = 100;
-      return x + 100 * y;
-    }
 
-    function childFunction2() {  
-        z = 10; // => prints assignment to constant variable error
-        return x + 30 + z + y; // => adding y variable throws undefined error
-    }
-   
-    return childFunction1() + childFunction2();
+/* 6. To apply this function, based on the function we created below. Function can access and reassign a variable 
+ * from the global scope. 
+ */
+var x = 10;  // x is global variable and value is 2
+
+myFunction();
+
+function myFunction(){
+   x = 20;  // x here is local variable and the value is 20
 }
+console.log(x); // => prints 20, because x is global and it can be access and reassign
+
+// another example of variables defined inside a function are not accessible (visible) 
+// from outside the function. Example shows below that local variables have function scope.
+// They can only be accessed from within the function. 
+
+var carName = "Chevy" ;
+
+function myFunction() {
+
+var carName = "Volvo"; // Function Scope  
+}
+console.log(carName); // => prints "Chevy" 
+
 
 /* 
  * 

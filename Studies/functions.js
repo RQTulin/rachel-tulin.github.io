@@ -58,18 +58,6 @@ function myFunction(){
 }
 console.log(x); // => prints 20, because x is global and it can be access and reassign
 
-// another example of variables defined inside a function are not accessible (visible) 
-// from outside the function. Example shows below that local variables have function scope.
-// They can only be accessed from within the function. 
-
-var carName = "Chevy" ;
-
-function myFunction() {
-
-var carName = "Volvo"; // Function Scope  
-}
-console.log(carName); // => prints "Chevy" 
-
 
 /* 
  * 
